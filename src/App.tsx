@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/header/Header'
-import Contact from './components/contact/Contact'
+import List from './components/list/List';
 
 function App() {
   return (
     <div className="App">
       <Header/>
       <div className="container">
-        <Contact/>
-        <Contact/>
+        <List/>
       </div>
     </div>
   );

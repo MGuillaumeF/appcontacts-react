@@ -1,18 +1,21 @@
 import * as React from 'react';
-
+/*
 export interface IContactProps {
-}
+    nom : string,
+    email : string,
+    tel : string
+}*/
 
-export default function App (props: IContactProps) {
+export default function Contact (props: any) {
   return (
     <div className='card card-body mb-3'>
-      <h4></h4>
+      <h4>{props.nom}</h4>
       <ul className='card card-body mb-3'>
           <li className='list-group-item'>
-            Email : 
+            Email : {props.email}
           </li>
           <li className='list-group-item'>
-            Téléphone : 
+            Téléphone : {props.tel}
           </li>
       </ul>
     </div>
