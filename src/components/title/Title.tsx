@@ -1,14 +1,12 @@
-import React, { FunctionComponent } from 'react';
-
+import React from 'react';
 type TitleProps = {
-    nom : string
+    nom? : string
 }
 
-const Title:FunctionComponent<TitleProps> = ({nom, children}) => <div>
-<h1>Ceci est un titre pour {nom}</h1>
-<h2>{children}</h2>
+const Title = (props : any) => <div>
+<h1>Bonjour {props.nom !== undefined ? props.nom : 'JonDoe'}</h1>
+<h2>{props.children}</h2>
 
 </div>
-
 
 export default Title;
