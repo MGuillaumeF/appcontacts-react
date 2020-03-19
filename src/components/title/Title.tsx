@@ -1,12 +1,15 @@
 import React from 'react';
-type TitleProps = {
-    nom? : string
+import PropTypes from 'prop-types';
+
+const Title = (props : any) => {
+    return (
+        <div>
+            <h1> Bonjour {props.nom}</h1>
+        </div>
+    );
 }
-
-const Title = (props : any) => <div>
-<h1>Bonjour {props.nom !== undefined ? props.nom : 'JonDoe'}</h1>
-<h2>{props.children}</h2>
-
-</div>
+Title.propTypes = {
+    nom : PropTypes.string.isRequired
+}
 
 export default Title;

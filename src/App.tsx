@@ -7,9 +7,8 @@ function App() {
   const applicationStateName2 : any = useState('Eva');
   return (
     <div className="App">
-      <Title nom={applicationStateName1[0]}>test</Title>
-      <Title nom={applicationStateName2[0]}>test</Title>
-      <Title>test</Title>
+      <Title nom={applicationStateName1[0]}/>
+      <Title nom={applicationStateName2[0]}/>
     </div>
   );
 }
