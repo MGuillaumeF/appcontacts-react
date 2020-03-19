@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "cypress": "^4.2.0",
-    "jest": "^25.1.0",
     "mocha": "^7.1.1",
     "mochawesome": "^5.0.0",
     "typedoc": "^0.17.1"

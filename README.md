@@ -53,7 +53,6 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### npm install --save-dev
 
 - cypress
-- jest
 - mocha
 - mochawesome
 - typedoc
