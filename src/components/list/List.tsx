@@ -33,7 +33,7 @@ export default function List (props: IListProps) {
         setContacts(newContacts);
     };
   return (
-    <div>
+    <React.Fragment>
         {contacts.map(contact => (
             <Contact 
                 key={contact.id}
@@ -43,6 +43,6 @@ export default function List (props: IListProps) {
                 onDelete={() => {onDeleteContact(contact.id)}}
                 />
         ))}
-    </div>
+    </React.Fragment>
   );
 }
