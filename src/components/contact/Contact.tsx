@@ -3,7 +3,7 @@ import { Consumer } from './contact-context/ContactContext';
 import { IContact } from './ContactUtils';
 
 export default function Contact (props: IContact) {
-  let [show, showContact] = React.useState(true);
+  let [show, showContact] = React.useState(false);
   const onDelete = (id : number | undefined, dispatch : any) => {
     if (typeof(id) !== 'undefined') {
       dispatch({type : 'DELETE_CONTACT', payload : id});
