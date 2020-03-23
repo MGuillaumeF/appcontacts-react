@@ -1,10 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/header/Header'
-import List from './components/list/List';
+import ContactList from './components/contact/contact-list/ContactList';
 import Content from './components/content/Content';
-import { Provider } from './components/context/Context';
-import ContactForm from './components/contact-form/ContactForm';
+import { Provider } from './components/contact/contact-context/ContactContext';
+import ContactForm from './components/contact/contact-form/ContactForm';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <div className="container">
         <Content/>
         <ContactForm/>
-        <List/>
+        <ContactList/>
       </div>
     </Provider>
   );

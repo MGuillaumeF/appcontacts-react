@@ -1,14 +1,15 @@
 import * as React from 'react';
-import Contact from '../contact/Contact';
-import { Consumer } from '../context/Context';
+import Contact from '../Contact';
+import { Consumer } from '../contact-context/ContactContext';
+import { IContact } from '../ContactUtils';
 
-export default function List () {
+export default function ContactList () {
   return (
     <Consumer>
       {value => {
         return (
           <React.Fragment>
-            {value.contacts.map((contact: { id: number ; nom: string; email: string; tel: string; }) => (
+            {value.contacts.map((contact: IContact) => (
                 <Contact 
                     key={contact.id}
                     id={contact.id}

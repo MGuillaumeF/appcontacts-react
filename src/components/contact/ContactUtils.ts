@@ -7,3 +7,4 @@ export interface IContact {
 
 export const EMPTY_CONTACT : IContact = {nom : '', email : '', tel : ''};
 
+export const EMPTY_ANY : any = {};

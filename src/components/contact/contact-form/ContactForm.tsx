@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Consumer } from '../context/Context';
-import { EMPTY_CONTACT } from '../../contact-utils';
+import { Consumer } from '../contact-context/ContactContext';
+import { EMPTY_CONTACT } from '../ContactUtils';
 
 export default function ContactForm () {
     // Add contact object in state of form

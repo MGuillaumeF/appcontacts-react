@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Consumer } from '../context/Context';
-import { IContact } from '../../contact-utils';
+import { Consumer } from './contact-context/ContactContext';
+import { IContact } from './ContactUtils';
 
 export default function Contact (props: IContact) {
   let [show, showContact] = React.useState(true);

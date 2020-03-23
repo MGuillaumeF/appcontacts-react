@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-export interface IContentProps {
-}
-
-export default function Content (props: IContentProps) {
+export default function Content () {
   return (
       <React.Fragment>
         <h1>Few content.</h1>

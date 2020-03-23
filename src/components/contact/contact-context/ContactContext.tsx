@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { EMPTY_ANY } from '../ContactUtils';
 
 export const contactReducer = (state : any, action : any) => {
     switch(action.type) {
@@ -21,7 +22,7 @@ export const contactReducer = (state : any, action : any) => {
             return state;
     }
 };
-const EMPTY_ANY : any = {};
+
 export const ContactContext = React.createContext(EMPTY_ANY);
 
 export function Provider (props : any) {
