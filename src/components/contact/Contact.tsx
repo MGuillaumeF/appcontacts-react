@@ -11,7 +11,7 @@ export interface IContactProps {
 
 export default function Contact (props: IContactProps) {
   let [show, showContact] = React.useState(true);
-  const onDelete = (id : number, dispatch : any, value : any) => {
+  const onDelete = (id : number, dispatch : any) => {
     dispatch({type : 'DELETE_CONTACT', payload : id});
   };
   return (
@@ -28,7 +28,7 @@ export default function Contact (props: IContactProps) {
             <i 
               style={{cursor : 'pointer', float : 'right', color : 'red'}} 
               className='fas fa-times' 
-              onClick={() => {onDelete(props.id, value.dispatch, value)}}
+              onClick={() => {onDelete(props.id, value.dispatch)}}
             ></i>
             </h4>
             {show ? (
