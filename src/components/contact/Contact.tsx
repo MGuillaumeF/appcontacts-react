@@ -1,18 +1,13 @@
 import * as React from 'react';
 import { Consumer } from '../context/Context';
+import { IContact } from '../../contact-utils';
 
-export interface IContactProps {
-    nom : string,
-    email : string,
-    tel : string,
-    id : number
-}
-
-
-export default function Contact (props: IContactProps) {
+export default function Contact (props: IContact) {
   let [show, showContact] = React.useState(true);
-  const onDelete = (id : number, dispatch : any) => {
-    dispatch({type : 'DELETE_CONTACT', payload : id});
+  const onDelete = (id : number | undefined, dispatch : any) => {
+    if (typeof(id) !== 'undefined') {
+      dispatch({type : 'DELETE_CONTACT', payload : id});
+    }
   };
   return (
     <Consumer>

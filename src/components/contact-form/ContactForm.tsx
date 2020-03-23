@@ -1,19 +1,25 @@
 import * as React from 'react';
 import { Consumer } from '../context/Context';
+import { EMPTY_CONTACT } from '../../contact-utils';
 
-const EMPTY_CONTACT = {nom : '', email : '', tel : ''};
-
-export interface IAddContactProps {
-}
-
-export default function AddContact (props: IAddContactProps) {
+export default function ContactForm () {
+    // Add contact object in state of form
     let [contact, setContact] = React.useState(EMPTY_CONTACT);
-
+    /**
+     * Funtion to accept change of Contact form
+     * @param value The value of input
+     * @param key The key of contact object to update
+     */
     const onChange = (value : string, key : string) => {
         let contactUpdated : any = Object.assign({}, contact);
         contactUpdated[key] = value;
         setContact(contactUpdated);
     };
+    /**
+     * Function to add contact in context/list
+     * @param event The submit event
+     * @param context The context to add contact
+     */
     const onSubmit = (event : any, context : any) => {
         event.preventDefault();
         context.dispatch({type : 'ADD_CONTACT', payload : contact});
