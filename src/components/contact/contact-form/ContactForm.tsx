@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Consumer } from '../contact-context/ContactContext';
 import { EMPTY_CONTACT } from '../ContactUtils';
 
-export default function ContactForm () {
+export default function ContactForm (props : any) {
     // Add contact object in state of form
     let [contact, setContact] = React.useState(EMPTY_CONTACT);
     /**
@@ -24,6 +24,7 @@ export default function ContactForm () {
         event.preventDefault();
         context.dispatch({type : 'ADD_CONTACT', payload : contact});
         setContact(EMPTY_CONTACT);
+        props.history.push('/');
     };
   return (
     <Consumer>
