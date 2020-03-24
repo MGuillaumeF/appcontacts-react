@@ -28,7 +28,14 @@ export const ContactContext = React.createContext(EMPTY_ANY);
 export function Provider (props : any) {
     let [contacts, setContacts] = React.useState({
         currentContactId : 1,
-        contacts : [],
+        contacts : [
+            {
+                id : 0,
+                email : 'a@a.fr',
+                nom : 'test', 
+                tel : '012345689'
+            }
+        ],
         dispatch : (action : any) => {
             setContacts(contacts => contactReducer(contacts, action));
         }

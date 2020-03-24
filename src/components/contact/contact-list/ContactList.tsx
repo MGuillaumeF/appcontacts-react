@@ -9,6 +9,7 @@ export default function ContactList () {
       {value => {
         return (
           <React.Fragment>
+            <h1 className='display-5 my-4'>My Contacts : </h1>
             {value.contacts.map((contact: IContact) => (
                 <Contact 
                     key={contact.id}
