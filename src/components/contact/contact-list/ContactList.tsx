@@ -4,6 +4,9 @@ import { Consumer } from '../contact-context/ContactContext';
 import { IContact } from '../ContactUtils';
 
 export default function ContactList () {
+  React.useEffect(() => {
+    console.log('The component is mounted');
+  });
   return (
     <Consumer>
       {value => {
