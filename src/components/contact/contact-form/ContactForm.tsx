@@ -49,7 +49,7 @@ export default function ContactForm(props: { history: { push: Function } }) {
                                         placeholder="Name..."
                                         name="name"
                                         value={contact.name}
-                                        onChange={(event) => { onChange(event.target.value, 'nom') }}
+                                        onChange={(event) => { onChange(event.target.value, 'name') }}
                                     />
                                 </div>
                                 <div className="form-group">
