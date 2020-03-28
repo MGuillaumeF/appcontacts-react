@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { Link } from "react-router-dom";
 
+/**
+ * The Header banner of application with Link to access all pages
+ */
 export default function Header () {
   return (
-    <div>
+    <header>
       <nav className='navbar navbar-dark bg-primary mb-3 py-0'>
           <div className="container">
             <Link to='/'  className='navbar-brand'>AppContacts</Link>
@@ -20,7 +23,7 @@ export default function Header () {
             </ul> 
           </div>
       </nav>
-    </div>
+    </header>
   );
 }
 

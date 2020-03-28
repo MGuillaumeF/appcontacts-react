@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-
+/**
+ * The About us page component
+ */
 export default function AboutUs () {
   return (
     <React.Fragment>

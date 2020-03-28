@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-
+/**
+ * The Error 404 page component
+ */
 export default function Error404 () {
   return (
     <React.Fragment>

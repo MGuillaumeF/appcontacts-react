@@ -2,19 +2,39 @@ import * as React from 'react';
 import { Consumer } from './contact-context/ContactContext';
 import { IContact } from './ContactUtils';
 
+/**
+ * The component to display Contact card item
+ * @param props The contact object content 
+ * @see IContact
+ */
 export default function Contact (props: IContact) {
-  let [show, showContact] = React.useState(false);
-  const onDelete = (id : number | undefined, dispatch : any) => {
-    if (typeof(id) !== 'undefined') {
-      dispatch({type : 'DELETE_CONTACT', payload : id});
+
+  /**
+   * The display state 
+   * true show content card
+   * false hide content card
+   */
+  const [show, showContact] = React.useState(false);
+
+  /**
+   * Function to delete a contact in list
+   * @param contact The contact object content 
+   * @param dispatch The function to interact with context, to delete contact in context state
+   */
+  const onDelete = (contact : IContact, dispatch : Function) => {
+    if (typeof(contact.id) !== 'undefined') {
+      dispatch({type : 'DELETE_CONTACT', payload : {id : contact.id}});
     }
   };
+  /**
+   * render of component with ContactContext closure
+   */
   return (
     <Consumer>
       {value => {
         return (
           <div className='card card-body mb-3 text-center'>
-            <h4>{props.nom}&nbsp;
+            <h4>{props.name}&nbsp;
             <i 
               style={{cursor : 'pointer'}} 
               className='fas fa-sort-down' 
@@ -23,7 +43,7 @@ export default function Contact (props: IContact) {
             <i 
               style={{cursor : 'pointer', float : 'right', color : 'red'}} 
               className='fas fa-times' 
-              onClick={() => {onDelete(props.id, value.dispatch)}}
+              onClick={() => {onDelete(props, value.dispatch)}}
             ></i>
             </h4>
             {show ? (
