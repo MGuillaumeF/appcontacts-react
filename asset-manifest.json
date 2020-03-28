@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/appcontacts-react/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/appcontacts-react/static/js/main.99abc7d7.chunk.js",
+    "main.js.map": "/appcontacts-react/static/js/main.99abc7d7.chunk.js.map",
+    "runtime-main.js": "/appcontacts-react/static/js/runtime-main.beda7151.js",
+    "runtime-main.js.map": "/appcontacts-react/static/js/runtime-main.beda7151.js.map",
+    "static/css/2.de424728.chunk.css": "/appcontacts-react/static/css/2.de424728.chunk.css",
+    "static/js/2.bb600b5d.chunk.js": "/appcontacts-react/static/js/2.bb600b5d.chunk.js",
+    "static/js/2.bb600b5d.chunk.js.map": "/appcontacts-react/static/js/2.bb600b5d.chunk.js.map",
+    "index.html": "/appcontacts-react/index.html",
+    "precache-manifest.b253d2877bf6f0b5cf33dd99eb8bb5a1.js": "/appcontacts-react/precache-manifest.b253d2877bf6f0b5cf33dd99eb8bb5a1.js",
+    "service-worker.js": "/appcontacts-react/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/appcontacts-react/static/css/2.de424728.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/appcontacts-react/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.bb600b5d.chunk.js.LICENSE.txt": "/appcontacts-react/static/js/2.bb600b5d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.beda7151.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.bb600b5d.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.99abc7d7.chunk.js"
+  ]
+}
