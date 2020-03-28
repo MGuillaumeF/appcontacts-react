@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/header/Header'
+import '@fortawesome/fontawesome-free/css/all.css';
+import Header from './components/header/Header';
 import ContactList from './components/contact/contact-list/ContactList';
 import { Provider } from './components/contact/contact-context/ContactContext';
 import ContactForm from './components/contact/contact-form/ContactForm';
@@ -15,13 +16,13 @@ function App() {
         <Header/>
         <div className="container">
           <Switch>
+            <Route exact path="/appcontacts-react" component={ContactList}/>
             <Route exact path="/" component={ContactList}/>
             <Route exact path="/add" component={ContactForm}/>
             <Route exact path="/about" component={AboutUs}/>
             <Route component={Error404}/>
           </Switch>
         </div>
-
       </Router>
     </Provider>
   );

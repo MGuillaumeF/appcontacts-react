@@ -6,7 +6,7 @@ export default function Header () {
     <div>
       <nav className='navbar navbar-dark bg-primary mb-3 py-0'>
           <div className="container">
-            <a href='/' className='navbar-brand'>AppContacts</a>
+            <aLink to='/'  className='navbar-brand'>AppContacts</Link>
             <ul className='navbar-nav d-inline-block'>
                 <li className='nav-item d-inline-block mr-2'>
                     <Link to='/' className='nav-link'>Home</Link>
