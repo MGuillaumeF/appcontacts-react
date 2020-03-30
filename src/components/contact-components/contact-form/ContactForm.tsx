@@ -1,6 +1,32 @@
 import * as React from 'react';
 import { ContactsConsumer, IContactsContextState } from '../contact-context/ContactContext';
 import { EMPTY_CONTACT } from '../../../ConstantsUtils';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Paper from '@material-ui/core/Paper';
+
+import './ContactForm.css'
+
+/**
+ * Validation RegExp to display error and refuse bad form
+ */
+const inputValidators : any = {
+    name : /^[A-Z][A-Z\-]+$/,
+    email : /^[A-Za-z0-9\-_\.]+@[A-Za-z0-9\-_]+\.[A-Za-z]{2,4}$/,
+    tel : /^(?:\+\d{11})|(?:\d{10})$/
+};
+
+/**
+ * Limitation RegExp to limit user input keyboard
+ */
+const inputLimitors : any = {
+    name : /^[A-Z\-]*$/,
+    email : /^[A-Za-z0-9\-_\.@]*$/,
+    tel : /^((\+\d{0,11})|(\d{0,10}))$/
+};
 
 /**
 * The Contact interface with mandatory id 
@@ -30,20 +56,54 @@ export default function ContactForm(props: IContactForm) {
      */
     const onChange = (value: string, key: string) => {
         let contactUpdated: any = { ...contact };
-        contactUpdated[key] = value;
-        setContact(contactUpdated);
+        contactUpdated[key] = (key === 'name' ? value.toUpperCase() : value).trim();
+        if (value.length === 0 || isValidChangeInputContent(key, contactUpdated[key])) {
+            setContact(contactUpdated);
+        }
     };
     /**
      * Function to add contact in context/list
      * @param event The submit event
      * @param context The context to add contact
      */
-    const onSubmit = (event: { preventDefault: Function }, context: IContactsContextState) => {
-        event.preventDefault();
-        context.dispatch({ type: 'ADD_CONTACT', payload: contact });
-        setContact(EMPTY_CONTACT);
-        props.history.push('/');
+    const onSubmit = (context: IContactsContextState) => {
+        if (isValidSubmitForm()) {
+            context.dispatch({ type: 'ADD_CONTACT', payload: contact });
+            setContact(EMPTY_CONTACT);
+            props.history.push('/');
+        }
     };
+
+    /**
+     * Function to check validity of inputs content before submit
+     */
+    const isValidSubmitForm = () => {
+        let result : boolean = true;
+        const keys : Array<string> = Object.keys(inputValidators);
+        for (let i = 0; i < keys.length; i += 1) {
+            result = result && isValidSubmitInputContent(keys[i]);
+        }
+        return result;
+    }
+
+    /**
+     * Function to check validity of inputs content before submit
+     * @param inputKey
+     */
+    const isValidSubmitInputContent = (inputKey : string) => {
+        let contactCopy : any = {...contact};
+        return inputValidators[inputKey].test(contactCopy[inputKey]);
+    }
+
+    /**
+     * Function to check validity of inputs content before change value of state
+     * @param inputKey 
+     * @param value 
+     */
+    const isValidChangeInputContent = (inputKey : string, value : string) => {
+        return inputLimitors[inputKey].test(value);
+    }
+
     /**
      * Render of ContactForm component
      */
@@ -51,51 +111,55 @@ export default function ContactForm(props: IContactForm) {
         <ContactsConsumer>
             {context => {
                 return (
-                    <div className="card mb-3">
-                        <div className="card-header">Add a Contact</div>
-                        <div className="card-body">
-                            <form onSubmit={(event) => { onSubmit(event, context) }}>
-                                <div className="form-group">
-                                    <label htmlFor="name">Name</label>
-                                    <input
-                                        type="text"
-                                        className="form-control form-control-lg"
-                                        placeholder="Name..."
-                                        name="name"
-                                        value={contact.name}
-                                        onChange={(event) => { onChange(event.target.value, 'name') }}
+                    <Paper className="padding-1">
+                        <h2>Add a Contact</h2>
+                        <form noValidate autoComplete="off">
+                            <FormControl fullWidth={true} margin='normal'>
+                                <InputLabel htmlFor="name">Name</InputLabel>
+                                <TextField id="name" label="Name..."
+                                    required={true}
+                                    className="form-control form-control-lg"
+                                    value={contact.name}
+                                    error={contact.name.length > 0 && !isValidSubmitInputContent('name')}
+                                    onChange={(event) => { onChange(event.target.value, 'name') }}
                                     />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="name">Email</label>
-                                    <input
-                                        type="email"
-                                        className="form-control form-control-lg"
-                                        placeholder="Email..."
-                                        name="email"
-                                        value={contact.email}
-                                        onChange={(event) => { onChange(event.target.value, 'email') }}
+                            </FormControl>
+                            <FormControl fullWidth={true} margin='normal'>
+                                <InputLabel htmlFor="email">Email Address</InputLabel>
+                                <TextField id="email" label="Email..."
+                                    required={true}
+                                    className="form-control form-control-lg"
+                                    value={contact.email}
+                                    error={contact.email.length > 0 && !isValidSubmitInputContent('email')}
+                                    onChange={(event) => { onChange(event.target.value, 'email') }}
                                     />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="tel">Telephone</label>
-                                    <input
-                                        type="tel"
-                                        className="form-control form-control-lg"
-                                        placeholder="Telephone..."
-                                        name="tel"
-                                        value={contact.tel}
-                                        onChange={(event) => { onChange(event.target.value, 'tel') }}
+                                <FormHelperText id="email-helper-text" error={contact.email.length > 0 && !isValidSubmitInputContent('email')} >
+                                {contact.email.length > 0 && !isValidSubmitInputContent('email') ? 'Please enter a valid email' : 'We\'ll never share your email.'}
+                                </FormHelperText>
+                            </FormControl>
+                            <FormControl fullWidth={true} margin='normal'>
+                                <InputLabel htmlFor="telephone">Telephone Number</InputLabel>
+                                <TextField id="telephone" label="Telephone..."
+                                    required={true}
+                                    className="form-control form-control-lg"
+                                    value={contact.tel}
+                                    error={contact.tel.length > 0 && !isValidSubmitInputContent('tel')}
+                                    onChange={(event) => { onChange(event.target.value, 'tel') }}
                                     />
-                                </div>
-                                <input
-                                    type="submit"
-                                    value="Add Contact"
-                                    className="btn btn-block btn-primary"
-                                />
-                            </form>
-                        </div>
-                    </div>
+                                <FormHelperText id="tel-helper-text" error={contact.tel.length > 0 && !isValidSubmitInputContent('tel')} >
+                                    {contact.tel.length > 0 && !isValidSubmitInputContent('tel') ? 'Please enter a alid phone number' : 'Main telephone number'}
+                                </FormHelperText>
+                            </FormControl>
+                            <FormControl fullWidth={true} margin='normal'>
+                                <Button 
+                                    variant="contained" 
+                                    color="primary" onClick={() => { onSubmit(context) }}
+                                    >
+                                Add Contact
+                                </Button>
+                            </FormControl>
+                        </form>
+                    </Paper>
                 )
             }}
         </ContactsConsumer>
