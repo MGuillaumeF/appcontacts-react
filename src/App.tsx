@@ -2,16 +2,16 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import Header from './components/header/Header';
-import ContactList from './components/contact/contact-list/ContactList';
-import { Provider } from './components/contact/contact-context/ContactContext';
-import ContactForm from './components/contact/contact-form/ContactForm';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ContactList from './components/contact-components/contact-list/ContactList';
+import { ContactsProvider } from './components/contact-components/contact-context/ContactContext';
+import ContactForm from './components/contact-components/contact-form/ContactForm';
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import AboutUs from './components/about-us/AboutUs';
-import Error404 from './components/error-page/Error404';
+import Error404 from './components/error-page/404/Error404';
 
 function App() {
   return (
-    <Provider>
+    <ContactsProvider>
       <Router>
         <Header/>
         <div className="container">
@@ -24,7 +24,7 @@ function App() {
           </Switch>
         </div>
       </Router>
-    </Provider>
+    </ContactsProvider>
   );
 }
 

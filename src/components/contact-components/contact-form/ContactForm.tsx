@@ -1,12 +1,26 @@
 import * as React from 'react';
-import { Consumer } from '../contact-context/ContactContext';
-import { EMPTY_CONTACT, IState } from '../ContactUtils';
+import { ContactsConsumer, IContactsContextState } from '../contact-context/ContactContext';
+import { EMPTY_CONTACT } from '../../../ConstantsUtils';
+
+/**
+* The Contact interface with mandatory id 
+* To manipulate Contact after creation
+*/
+export interface IContactForm {
+    /**
+     * The history object is React props<br/>
+     * The push function is React props attribut to make redirection with ReactRouter  
+     */
+    history: {
+        push: Function
+    }
+}
 
 /**
  * Form component to add contact
  * @param props To redirect to the list page after add contact in context
  */
-export default function ContactForm(props: { history: { push: Function } }) {
+export default function ContactForm(props: IContactForm) {
     // Add contact object in state of form
     const [contact, setContact] = React.useState(EMPTY_CONTACT);
     /**
@@ -24,7 +38,7 @@ export default function ContactForm(props: { history: { push: Function } }) {
      * @param event The submit event
      * @param context The context to add contact
      */
-    const onSubmit = (event: { preventDefault: Function }, context: IState) => {
+    const onSubmit = (event: { preventDefault: Function }, context: IContactsContextState) => {
         event.preventDefault();
         context.dispatch({ type: 'ADD_CONTACT', payload: contact });
         setContact(EMPTY_CONTACT);
@@ -34,7 +48,7 @@ export default function ContactForm(props: { history: { push: Function } }) {
      * Render of ContactForm component
      */
     return (
-        <Consumer>
+        <ContactsConsumer>
             {context => {
                 return (
                     <div className="card mb-3">
@@ -84,6 +98,6 @@ export default function ContactForm(props: { history: { push: Function } }) {
                     </div>
                 )
             }}
-        </Consumer>
+        </ContactsConsumer>
     );
 }

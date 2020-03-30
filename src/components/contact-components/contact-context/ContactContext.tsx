@@ -1,5 +1,33 @@
 import * as React from 'react';
-import { EMPTY_ANY, IContactWithId, IState, IAction} from '../ContactUtils';
+import { EMPTY_ANY } from '../../../ConstantsUtils';
+import { IContactWithId } from '../contact/Contact';
+
+
+/**
+ * Context Interface
+ * The Action interface to explain the payload format
+ * key id to DELETE action
+ * keys name, email, tel to ADD action
+ */
+export interface IContactsContextAction {
+    type : string,
+    payload : {
+        name? : string,
+        email? : string,
+        tel? : string,
+        id? : number
+    }
+}
+
+/**
+ * Context Interface
+ * The State interface to explain the Context state content
+ */
+export interface IContactsContextState {
+    currentContactId : number,
+    contacts : Array<IContactWithId>,
+    dispatch : any
+}
 
 const ContactContext = React.createContext(EMPTY_ANY);
 
@@ -8,7 +36,7 @@ const ContactContext = React.createContext(EMPTY_ANY);
  * @param state The state of context
  * @param action The data passed to interact with context
  */
-export const contactReducer = (state: IState, action: IAction) => {
+export const contactReducer = (state: IContactsContextState, action: IContactsContextAction) => {
     switch (action.type) {
         case 'ADD_CONTACT':
             console.log('add clicked', state, action);
@@ -35,7 +63,7 @@ export const contactReducer = (state: IState, action: IAction) => {
  * The Provider component to defined the context content
  * @param props The props object to interact with context content 
  */
-export function Provider(props: {children : any}) {
+export function ContactsProvider(props: {children : any}) {
     const listDefaultContacts : Array<IContactWithId> = [
                 {
                     id: 0,
@@ -52,8 +80,8 @@ export function Provider(props: {children : any}) {
             currentContactId: 1,
             contacts: listDefaultContacts,
             // fonction to write in context
-            dispatch: (action: IAction) => {
-                setState((state : IState) => contactReducer(state, action));
+            dispatch: (action: IContactsContextAction) => {
+                setState((state : IContactsContextState) => contactReducer(state, action));
             }
         }
     );
@@ -66,4 +94,4 @@ export function Provider(props: {children : any}) {
 }
 
 // The Consumer of context to read context state content
-export const Consumer = ContactContext.Consumer;
+export const ContactsConsumer = ContactContext.Consumer;

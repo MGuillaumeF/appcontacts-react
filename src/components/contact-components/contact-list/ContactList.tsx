@@ -1,7 +1,6 @@
 import * as React from 'react';
-import Contact from '../Contact';
-import { Consumer } from '../contact-context/ContactContext';
-import { IContactWithId } from '../ContactUtils';
+import Contact, { IContactWithId } from '../contact/Contact';
+import { ContactsConsumer } from '../contact-context/ContactContext';
 
 /**
  * The Contact List component to display all contact
@@ -17,7 +16,7 @@ export default function ContactList () {
    * The render of Contact List component with context closure
    */
   return (
-    <Consumer>
+    <ContactsConsumer>
       {value => {
         return (
           <React.Fragment>
@@ -34,6 +33,6 @@ export default function ContactList () {
           </React.Fragment>
         )
       }}
-    </Consumer>
+    </ContactsConsumer>
   );
 }

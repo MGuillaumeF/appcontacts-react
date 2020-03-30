@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 /**
- * The Error 404 page component
+ * The **Error 404** component page is to inform user of bad access pages
  */
 export default function Error404 () {
   return (

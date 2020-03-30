@@ -1,6 +1,4 @@
-AboutUs example :
-
-The page **About Us** 
+The page **About Us** has
 
 - no _props_
 - no _state_

@@ -1,11 +1,55 @@
 import * as React from 'react';
-import { Consumer } from './contact-context/ContactContext';
-import { IContact } from './ContactUtils';
+import { ContactsConsumer } from '../contact-context/ContactContext';
+
+/**
+ * The Contact interface with optional id
+ * To manipulate Contact before creation
+ */
+export interface IContact {
+  /**
+   * The name of Contact
+   */
+  name : string,
+  /**
+   * The email of contact
+   */
+  email : string,
+  /**
+   * The telephone number of Contact
+   */
+  tel : string,
+  /**
+   * The id of Contact (assigned by context dispatcher)
+   */
+  id? : number
+}
+
+/**
+* The Contact interface with mandatory id 
+* To manipulate Contact after creation
+*/
+export interface IContactWithId {
+  /**
+   * The name of Contact
+   */
+  name : string,
+  /**
+   * The email of contact
+   */
+  email : string,
+  /**
+   * The telephone number of Contact
+   */
+  tel : string,
+  /**
+   * The id of Contact (assigned by context dispatcher)
+   */
+  id : number
+}
 
 /**
  * The component to display Contact card item
- * @param props The contact object content 
- * @see IContact
+ * @param props The contact object content
  */
 export default function Contact (props: IContact) {
 
@@ -30,7 +74,7 @@ export default function Contact (props: IContact) {
    * render of component with ContactContext closure
    */
   return (
-    <Consumer>
+    <ContactsConsumer>
       {value => {
         return (
           <div className='card card-body mb-3 text-center'>
@@ -52,11 +96,11 @@ export default function Contact (props: IContact) {
                   Email : {props.email}
                 </li>
                 <li className='list-group-item'>
-                  Téléphone : {props.tel}
+                  Telephone : {props.tel}
                 </li>
             </ul>) : null}
           </div>
         )}}
-    </Consumer>
+    </ContactsConsumer>
   );
 }
