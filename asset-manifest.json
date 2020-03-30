@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/appcontacts-react/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/appcontacts-react/static/js/main.db4da7df.chunk.js",
-    "main.js.map": "/appcontacts-react/static/js/main.db4da7df.chunk.js.map",
+    "main.css": "/appcontacts-react/static/css/main.566e2cc3.chunk.css",
+    "main.js": "/appcontacts-react/static/js/main.c67586f8.chunk.js",
+    "main.js.map": "/appcontacts-react/static/js/main.c67586f8.chunk.js.map",
     "runtime-main.js": "/appcontacts-react/static/js/runtime-main.beda7151.js",
     "runtime-main.js.map": "/appcontacts-react/static/js/runtime-main.beda7151.js.map",
     "static/css/2.b0d68b8e.chunk.css": "/appcontacts-react/static/css/2.b0d68b8e.chunk.css",
-    "static/js/2.82f1a078.chunk.js": "/appcontacts-react/static/js/2.82f1a078.chunk.js",
-    "static/js/2.82f1a078.chunk.js.map": "/appcontacts-react/static/js/2.82f1a078.chunk.js.map",
+    "static/js/2.2bec49d9.chunk.js": "/appcontacts-react/static/js/2.2bec49d9.chunk.js",
+    "static/js/2.2bec49d9.chunk.js.map": "/appcontacts-react/static/js/2.2bec49d9.chunk.js.map",
     "index.html": "/appcontacts-react/index.html",
-    "precache-manifest.ba33a8fd939a52089658c88290861a66.js": "/appcontacts-react/precache-manifest.ba33a8fd939a52089658c88290861a66.js",
+    "precache-manifest.d6d31aeeac38a30dae8a4d2f25c2af34.js": "/appcontacts-react/precache-manifest.d6d31aeeac38a30dae8a4d2f25c2af34.js",
     "service-worker.js": "/appcontacts-react/service-worker.js",
     "static/css/2.b0d68b8e.chunk.css.map": "/appcontacts-react/static/css/2.b0d68b8e.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/appcontacts-react/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.82f1a078.chunk.js.LICENSE.txt": "/appcontacts-react/static/js/2.82f1a078.chunk.js.LICENSE.txt",
+    "static/css/main.566e2cc3.chunk.css.map": "/appcontacts-react/static/css/main.566e2cc3.chunk.css.map",
+    "static/js/2.2bec49d9.chunk.js.LICENSE.txt": "/appcontacts-react/static/js/2.2bec49d9.chunk.js.LICENSE.txt",
     "static/media/all.css": "/appcontacts-react/static/media/fa-solid-900.ec763292.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.beda7151.js",
     "static/css/2.b0d68b8e.chunk.css",
-    "static/js/2.82f1a078.chunk.js",
-    "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.db4da7df.chunk.js"
+    "static/js/2.2bec49d9.chunk.js",
+    "static/css/main.566e2cc3.chunk.css",
+    "static/js/main.c67586f8.chunk.js"
   ]
 }
