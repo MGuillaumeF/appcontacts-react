@@ -1,3 +1,5 @@
+To see application [Click Here](https://mguillaumef.github.io/appcontacts-react/).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -37,6 +39,60 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+### `npm run deploy`
+
+**Note: this is an extention of project by GitHub and `gh-pages` module**
+
+> Require `npm install --save-dev gh-pages`
+
+This command build project and upload result on GitHub page of repository 
+The `homepage` is defined in the `package.json` file
+
+### `npm run dev-doc`
+
+**Note: this is a documentation extention, `styleguidist` module**
+
+> Require `npm install --save-dev react-styleguidist`
+
+Here we use TypeScript so styleguidist need `doc-gen` module
+
+> Require `npm install --save-dev react-docgen-typescript`
+
+And configuration file with content :
+
+```js
+module.exports = {
+    propsParser: require('react-docgen-typescript').withCustomConfig(
+        './tsconfig.json'
+    ).parse
+}
+```
+The command start documentation server, the documentation is built with `.md` Files in `components` directory
+
+### `npm run build-doc`
+
+**Note: this is a documentation extention, `styleguidist` module**
+
+> Require `npm install --save-dev react-styleguidist`
+
+Here we use TypeScript so styleguidist need `doc-gen` module
+
+> Require `npm install --save-dev react-docgen-typescript`
+
+And configuration file with content :
+
+```js
+module.exports = {
+    propsParser: require('react-docgen-typescript').withCustomConfig(
+        './tsconfig.json'
+    ).parse
+}
+```
+
+The command build documentation, the documentation is built with `.md` Files in `components` directory
+
+The output is in a `styleguidist` folder
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -55,14 +111,15 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - cypress
 - mocha
 - mochawesome
-- typedoc
+- gh-pages
+- react-docgen-typescript
+- react-styleguidist
 
 ### npm install --save
 
-- @types/jest
-- @types/node
-- @types/react
-- @types/react-dom
 - @material-ui/core
+- @fortawesome/fontawesome-free
+- bootstrap
+- react-router-dom
 - redux
 - typescript
