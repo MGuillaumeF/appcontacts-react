@@ -79,13 +79,18 @@ Here we use TypeScript so styleguidist need `doc-gen` module
 
 > Require `npm install --save-dev react-docgen-typescript`
 
-And configuration file with content :
+And configuration file with content, the `dangerouslyUpdateWebpackConfig` function is to set static names for output files :
 
 ```js
 module.exports = {
     propsParser: require('react-docgen-typescript').withCustomConfig(
         './tsconfig.json'
-    ).parse
+    ).parse,
+    dangerouslyUpdateWebpackConfig(webpackConfig, env) {
+		webpackConfig.output.filename = 'build/bundle.js'
+		webpackConfig.output.chunkFilename = 'build/[name].js'
+		return webpackConfig
+	}
 }
 ```
 
