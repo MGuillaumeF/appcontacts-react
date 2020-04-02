@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ContactsConsumer } from '../contact-context/ContactContext';
+import { useTranslation } from 'react-i18next';
 
 /**
  * The Contact interface with optional id
@@ -52,6 +53,7 @@ export interface IContactWithId {
  * @param props The contact object content
  */
 export default function Contact (props: IContact) {
+  const { t, i18n } = useTranslation();
 
   /**
    * The display state 
@@ -93,10 +95,10 @@ export default function Contact (props: IContact) {
             {show ? (
               <ul className='card card-body mb-3'>
                 <li className='list-group-item'>
-                  Email : {props.email}
+                {t('pages.addContact.inputs.email.name')} : {props.email}
                 </li>
                 <li className='list-group-item'>
-                  Telephone : {props.tel}
+                  {t('pages.addContact.inputs.tel.name')} : {props.tel}
                 </li>
             </ul>) : null}
           </div>

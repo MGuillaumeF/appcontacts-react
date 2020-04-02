@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import Header from './components/header/Header';
@@ -11,6 +11,7 @@ import Error404 from './components/error-page/404/Error404';
 
 function App() {
   return (
+    <Suspense fallback="loading">
     <ContactsProvider>
       <Router>
         <Header/>
@@ -20,11 +21,13 @@ function App() {
             <Route exact path="/" component={ContactList}/>
             <Route exact path="/add" component={ContactForm}/>
             <Route exact path="/about" component={AboutUs}/>
+
             <Route component={Error404}/>
           </Switch>
         </div>
       </Router>
     </ContactsProvider>
+    </Suspense>
   );
 }
 

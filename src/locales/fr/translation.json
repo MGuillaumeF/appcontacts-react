@@ -1,0 +1,51 @@
+{
+    "application-name": "AppContacts",
+    "pages": {
+        "home": {
+            "link": "Accueil",
+            "title": "Mes Contacts",
+            "labels": {
+                "email": "Email",
+                "tel": "Téléphone"
+            }
+        },
+        "addContact": {
+            "link": "Ajouter",
+            "title": "Ajouter un Contact",
+            "inputs": {
+                "name": {
+                    "name" : "Nom",
+                    "placeholder": "Nom..."
+                },
+                "email": {
+                    "name" : "Email",
+                    "placeholder": "Email...",
+                    "help-message": "Vous ne devez jamais communiquer votre adresse email",
+                    "error-message": "Veuillez saisir une adresse email valide"
+                },
+                "tel": {
+                    "name" : "Téléphone",
+                    "placeholder": "Téléphone...",
+                    "help-message": "Numéro de téléphone principal",
+                    "error-message": "Veuillez saisir un numéro de téléphone valide"
+                },
+                "submit": {
+                    "text": "AJOUTER"
+                }
+            }
+        },
+        "aboutUs": {
+            "link": "A propos",
+            "title": "A Propos",
+            "description": "Cette application est une liste de contacte, issue d'un cours Udemy",
+            "author": "MGuillaumeF",
+            "version": "1.0.0"
+        },
+        "error" : {
+            "404" : {
+                "title" : "Erreur 404",
+                "description" : "Page non trouvée"
+            }
+        }
+    }
+}

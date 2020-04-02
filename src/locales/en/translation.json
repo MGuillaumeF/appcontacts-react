@@ -1,0 +1,51 @@
+{
+    "application-name": "AppContacts",
+    "pages": {
+        "home": {
+            "link": "Home",
+            "title": "My Contacts",
+            "labels": {
+                "email": "Email",
+                "tel": "Telephone"
+            }
+        },
+        "addContact": {
+            "link": "Add",
+            "title": "Add a Contact",
+            "inputs": {
+                "name": {
+                    "name" : "Name",
+                    "placeholder": "Name..."
+                },
+                "email": {
+                    "name" : "Email",
+                    "placeholder": "Email...",
+                    "help-message": "We'll never share your email.",
+                    "error-message": "Please enter a valid email"
+                },
+                "tel": {
+                    "name" : "Telephone",
+                    "placeholder": "Telephone...",
+                    "help-message": "Main telephone number",
+                    "error-message": "Please enter a valid telephone number"
+                },
+                "submit": {
+                    "text": "ADD CONTACT"
+                }
+            }
+        },
+        "aboutUs": {
+            "link": "About-Us",
+            "title": "About Us",
+            "description": "This application is a Contact list of Udemy React learning",
+            "author": "MGuillaumeF",
+            "version": "1.0.0"
+        },
+        "error" : {
+            "404" : {
+                "title" : "Error 404",
+                "description" : "Page not found"
+            }
+        }
+    }
+}

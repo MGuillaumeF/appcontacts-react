@@ -7,6 +7,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Paper from '@material-ui/core/Paper';
+import { useTranslation } from 'react-i18next';
 
 import './ContactForm.css'
 
@@ -47,6 +48,7 @@ export interface IContactForm {
  * @param props To redirect to the list page after add contact in context
  */
 export default function ContactForm(props: IContactForm) {
+    const { t, i18n } = useTranslation();
     // Add contact object in state of form
     const [contact, setContact] = React.useState(EMPTY_CONTACT);
     /**
@@ -112,11 +114,11 @@ export default function ContactForm(props: IContactForm) {
             {context => {
                 return (
                     <Paper className="padding-1">
-                        <h2>Add a Contact</h2>
+                        <h2>{t('pages.addContact.title')}</h2>
                         <form noValidate autoComplete="off">
                             <FormControl fullWidth={true} margin='normal'>
                                 <InputLabel htmlFor="name">Name</InputLabel>
-                                <TextField id="name" label="Name..."
+                                <TextField id="name" label={t('pages.addContact.inputs.name.placeholder')}
                                     required={true}
                                     className="form-control form-control-lg"
                                     value={contact.name}
@@ -126,7 +128,7 @@ export default function ContactForm(props: IContactForm) {
                             </FormControl>
                             <FormControl fullWidth={true} margin='normal'>
                                 <InputLabel htmlFor="email">Email Address</InputLabel>
-                                <TextField id="email" label="Email..."
+                                <TextField id="email" label={t('pages.addContact.inputs.email.placeholder')}
                                     required={true}
                                     className="form-control form-control-lg"
                                     value={contact.email}
@@ -134,12 +136,12 @@ export default function ContactForm(props: IContactForm) {
                                     onChange={(event) => { onChange(event.target.value, 'email') }}
                                     />
                                 <FormHelperText id="email-helper-text" error={contact.email.length > 0 && !isValidSubmitInputContent('email')} >
-                                {contact.email.length > 0 && !isValidSubmitInputContent('email') ? 'Please enter a valid email' : 'We\'ll never share your email.'}
+                                {contact.email.length > 0 && !isValidSubmitInputContent('email') ? t('pages.addContact.inputs.email.error-message') : t('pages.addContact.inputs.email.help-message')}
                                 </FormHelperText>
                             </FormControl>
                             <FormControl fullWidth={true} margin='normal'>
                                 <InputLabel htmlFor="telephone">Telephone Number</InputLabel>
-                                <TextField id="telephone" label="Telephone..."
+                                <TextField id="telephone" label={t('pages.addContact.inputs.tel.placeholder')}
                                     required={true}
                                     className="form-control form-control-lg"
                                     value={contact.tel}
@@ -147,7 +149,7 @@ export default function ContactForm(props: IContactForm) {
                                     onChange={(event) => { onChange(event.target.value, 'tel') }}
                                     />
                                 <FormHelperText id="tel-helper-text" error={contact.tel.length > 0 && !isValidSubmitInputContent('tel')} >
-                                    {contact.tel.length > 0 && !isValidSubmitInputContent('tel') ? 'Please enter a alid phone number' : 'Main telephone number'}
+                                    {contact.tel.length > 0 && !isValidSubmitInputContent('tel') ? t('pages.addContact.inputs.tel.error-message') : t('pages.addContact.inputs.tel.help-message')}
                                 </FormHelperText>
                             </FormControl>
                             <FormControl fullWidth={true} margin='normal'>
@@ -155,7 +157,7 @@ export default function ContactForm(props: IContactForm) {
                                     variant="contained" 
                                     color="primary" onClick={() => { onSubmit(context) }}
                                     >
-                                Add Contact
+                                {t('pages.addContact.inputs.submit.text')}
                                 </Button>
                             </FormControl>
                         </form>
