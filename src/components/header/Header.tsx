@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
+import Button from '@material-ui/core/Button';
 
 /**
  * The Header banner of application with Link to access all pages
  */
 export default function Header() {
   const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18next.language);
+  const languages = i18next.languages;
+  const onChangeLanguage = () => {
+      i18n.changeLanguage(languages[1]);
+      setLanguage(languages[1]);
+  }
   return (
     <header>
       <nav className='navbar navbar-dark bg-primary mb-3 py-0'>
@@ -21,6 +29,9 @@ export default function Header() {
             </li>
             <li className='nav-item d-inline-block mr-2'>
               <Link to='/about' className='nav-link'>{t('pages.aboutUs.link')}</Link>
+            </li>
+            <li className='nav-item d-inline-block mr-2'>
+              <Button  onClick={onChangeLanguage}>{language}</Button>
             </li>
           </ul>
         </div>
