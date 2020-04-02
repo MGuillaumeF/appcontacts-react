@@ -48,7 +48,7 @@ export interface IContactForm {
  * @param props To redirect to the list page after add contact in context
  */
 export default function ContactForm(props: IContactForm) {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     // Add contact object in state of form
     const [contact, setContact] = React.useState(EMPTY_CONTACT);
     /**

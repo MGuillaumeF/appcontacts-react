@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
  * The **AboutUs** component page is to explain what is the application and who make it
  */
 export default function AboutUs () {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <React.Fragment>
       <h1 className='display-5'>{t('pages.aboutUs.title')}</h1>

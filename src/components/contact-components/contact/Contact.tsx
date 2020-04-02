@@ -53,7 +53,7 @@ export interface IContactWithId {
  * @param props The contact object content
  */
 export default function Contact (props: IContact) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   /**
    * The display state 
