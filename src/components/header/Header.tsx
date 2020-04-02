@@ -9,12 +9,21 @@ import Button from '@material-ui/core/Button';
  */
 export default function Header() {
   const { t, i18n } = useTranslation();
+  // save the curren language
   const [language, setLanguage] = useState(i18next.language);
+  // save all languages
   const languages = i18next.languages;
+  
+  /**
+   * Funtion to change the language of application
+   */
   const onChangeLanguage = () => {
+    if (languages.length > 1) {
       i18n.changeLanguage(languages[1]);
       setLanguage(languages[1]);
+    }
   }
+
   return (
     <header>
       <nav className='navbar navbar-dark bg-primary mb-3 py-0'>

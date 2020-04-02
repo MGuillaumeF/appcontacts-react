@@ -2,7 +2,6 @@ import * as React from 'react';
 import { EMPTY_ANY } from '../../../ConstantsUtils';
 import { IContactWithId } from '../contact/Contact';
 
-
 /**
  * Context Interface
  * The Action interface to explain the payload format
