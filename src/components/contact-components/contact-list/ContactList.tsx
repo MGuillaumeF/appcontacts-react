@@ -2,6 +2,7 @@ import * as React from 'react';
 import Contact, { IContactWithId } from '../contact/Contact';
 import { ContactsConsumer } from '../contact-context/ContactContext';
 import { useTranslation } from 'react-i18next';
+import Container from '@material-ui/core/Container';
 
 /**
  * The Contact List component to display all contact
@@ -21,8 +22,8 @@ export default function ContactList () {
     <ContactsConsumer>
       {value => {
         return (
-          <React.Fragment>
-            <h1 className='display-5 my-4'>{t('pages.home.title')}</h1>
+          <Container maxWidth="sm" className='padding-1'>
+            <h1 className='display-5'>{t('pages.home.title')}</h1>
             {value.contacts.map((contact: IContactWithId) => (
                 <Contact 
                     key={contact.id}
@@ -32,7 +33,7 @@ export default function ContactList () {
                     tel={contact.tel}
                     />
             ))}
-          </React.Fragment>
+          </Container>
         )
       }}
     </ContactsConsumer>

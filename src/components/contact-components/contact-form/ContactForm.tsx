@@ -8,25 +8,26 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Paper from '@material-ui/core/Paper';
 import { useTranslation } from 'react-i18next';
+import Container from '@material-ui/core/Container';
 
 import './ContactForm.css'
 
 /**
  * Validation RegExp to display error and refuse bad form
  */
-const inputValidators : any = {
-    name : /^[A-Z][A-Z\-]+$/,
-    email : /^[A-Za-z0-9\-_\.]+@[A-Za-z0-9\-_]+\.[A-Za-z]{2,4}$/,
-    tel : /^(?:\+\d{11})|(?:\d{10})$/
+const inputValidators: any = {
+    name: /^[A-Z][A-Z\-]+$/,
+    email: /^[A-Za-z0-9\-_\.]+@[A-Za-z0-9\-_]+\.[A-Za-z]{2,4}$/,
+    tel: /^(?:\+\d{11})|(?:\d{10})$/
 };
 
 /**
  * Limitation RegExp to limit user input keyboard
  */
-const inputLimitors : any = {
-    name : /^[A-Z\-]*$/,
-    email : /^[A-Za-z0-9\-_\.@]*$/,
-    tel : /^((\+\d{0,11})|(\d{0,10}))$/
+const inputLimitors: any = {
+    name: /^[A-Z\-]*$/,
+    email: /^[A-Za-z0-9\-_\.@]*$/,
+    tel: /^((\+\d{0,11})|(\d{0,10}))$/
 };
 
 /**
@@ -80,8 +81,8 @@ export default function ContactForm(props: IContactForm) {
      * Function to check validity of inputs content before submit
      */
     const isValidSubmitForm = () => {
-        let result : boolean = true;
-        const keys : Array<string> = Object.keys(inputValidators);
+        let result: boolean = true;
+        const keys: Array<string> = Object.keys(inputValidators);
         for (let i = 0; i < keys.length; i += 1) {
             result = result && isValidSubmitInputContent(keys[i]);
         }
@@ -92,8 +93,8 @@ export default function ContactForm(props: IContactForm) {
      * Function to check validity of inputs content before submit
      * @param inputKey
      */
-    const isValidSubmitInputContent = (inputKey : string) => {
-        let contactCopy : any = {...contact};
+    const isValidSubmitInputContent = (inputKey: string) => {
+        let contactCopy: any = { ...contact };
         return inputValidators[inputKey].test(contactCopy[inputKey]);
     }
 
@@ -102,7 +103,7 @@ export default function ContactForm(props: IContactForm) {
      * @param inputKey 
      * @param value 
      */
-    const isValidChangeInputContent = (inputKey : string, value : string) => {
+    const isValidChangeInputContent = (inputKey: string, value: string) => {
         return inputLimitors[inputKey].test(value);
     }
 
@@ -113,55 +114,58 @@ export default function ContactForm(props: IContactForm) {
         <ContactsConsumer>
             {context => {
                 return (
-                    <Paper className="padding-1">
-                        <h2>{t('pages.addContact.title')}</h2>
-                        <form noValidate autoComplete="off">
-                            <FormControl fullWidth={true} margin='normal'>
-                                <InputLabel htmlFor="name">Name</InputLabel>
-                                <TextField id="name" label={t('pages.addContact.inputs.name.placeholder')}
-                                    required={true}
-                                    className="form-control form-control-lg"
-                                    value={contact.name}
-                                    error={contact.name.length > 0 && !isValidSubmitInputContent('name')}
-                                    onChange={(event) => { onChange(event.target.value, 'name') }}
+                    <Container maxWidth="sm" className='padding-1'>
+
+                        <Paper className="padding-1">
+                            <h2>{t('pages.addContact.title')}</h2>
+                            <form noValidate autoComplete="off">
+                                <FormControl fullWidth={true} margin='normal'>
+                                    <InputLabel htmlFor="name">Name</InputLabel>
+                                    <TextField id="name" label={t('pages.addContact.inputs.name.placeholder')}
+                                        required={true}
+                                        className="form-control form-control-lg"
+                                        value={contact.name}
+                                        error={contact.name.length > 0 && !isValidSubmitInputContent('name')}
+                                        onChange={(event) => { onChange(event.target.value, 'name') }}
                                     />
-                            </FormControl>
-                            <FormControl fullWidth={true} margin='normal'>
-                                <InputLabel htmlFor="email">Email Address</InputLabel>
-                                <TextField id="email" label={t('pages.addContact.inputs.email.placeholder')}
-                                    required={true}
-                                    className="form-control form-control-lg"
-                                    value={contact.email}
-                                    error={contact.email.length > 0 && !isValidSubmitInputContent('email')}
-                                    onChange={(event) => { onChange(event.target.value, 'email') }}
+                                </FormControl>
+                                <FormControl fullWidth={true} margin='normal'>
+                                    <InputLabel htmlFor="email">Email Address</InputLabel>
+                                    <TextField id="email" label={t('pages.addContact.inputs.email.placeholder')}
+                                        required={true}
+                                        className="form-control form-control-lg"
+                                        value={contact.email}
+                                        error={contact.email.length > 0 && !isValidSubmitInputContent('email')}
+                                        onChange={(event) => { onChange(event.target.value, 'email') }}
                                     />
-                                <FormHelperText id="email-helper-text" error={contact.email.length > 0 && !isValidSubmitInputContent('email')} >
-                                {contact.email.length > 0 && !isValidSubmitInputContent('email') ? t('pages.addContact.inputs.email.error-message') : t('pages.addContact.inputs.email.help-message')}
-                                </FormHelperText>
-                            </FormControl>
-                            <FormControl fullWidth={true} margin='normal'>
-                                <InputLabel htmlFor="telephone">Telephone Number</InputLabel>
-                                <TextField id="telephone" label={t('pages.addContact.inputs.tel.placeholder')}
-                                    required={true}
-                                    className="form-control form-control-lg"
-                                    value={contact.tel}
-                                    error={contact.tel.length > 0 && !isValidSubmitInputContent('tel')}
-                                    onChange={(event) => { onChange(event.target.value, 'tel') }}
+                                    <FormHelperText id="email-helper-text" error={contact.email.length > 0 && !isValidSubmitInputContent('email')} >
+                                        {contact.email.length > 0 && !isValidSubmitInputContent('email') ? t('pages.addContact.inputs.email.error-message') : t('pages.addContact.inputs.email.help-message')}
+                                    </FormHelperText>
+                                </FormControl>
+                                <FormControl fullWidth={true} margin='normal'>
+                                    <InputLabel htmlFor="telephone">Telephone Number</InputLabel>
+                                    <TextField id="telephone" label={t('pages.addContact.inputs.tel.placeholder')}
+                                        required={true}
+                                        className="form-control form-control-lg"
+                                        value={contact.tel}
+                                        error={contact.tel.length > 0 && !isValidSubmitInputContent('tel')}
+                                        onChange={(event) => { onChange(event.target.value, 'tel') }}
                                     />
-                                <FormHelperText id="tel-helper-text" error={contact.tel.length > 0 && !isValidSubmitInputContent('tel')} >
-                                    {contact.tel.length > 0 && !isValidSubmitInputContent('tel') ? t('pages.addContact.inputs.tel.error-message') : t('pages.addContact.inputs.tel.help-message')}
-                                </FormHelperText>
-                            </FormControl>
-                            <FormControl fullWidth={true} margin='normal'>
-                                <Button 
-                                    variant="contained" 
-                                    color="primary" onClick={() => { onSubmit(context) }}
+                                    <FormHelperText id="tel-helper-text" error={contact.tel.length > 0 && !isValidSubmitInputContent('tel')} >
+                                        {contact.tel.length > 0 && !isValidSubmitInputContent('tel') ? t('pages.addContact.inputs.tel.error-message') : t('pages.addContact.inputs.tel.help-message')}
+                                    </FormHelperText>
+                                </FormControl>
+                                <FormControl fullWidth={true} margin='normal'>
+                                    <Button
+                                        variant="contained"
+                                        color="primary" onClick={() => { onSubmit(context) }}
                                     >
-                                {t('pages.addContact.inputs.submit.text')}
-                                </Button>
-                            </FormControl>
-                        </form>
-                    </Paper>
+                                        {t('pages.addContact.inputs.submit.text')}
+                                    </Button>
+                                </FormControl>
+                            </form>
+                        </Paper>
+                    </Container>
                 )
             }}
         </ContactsConsumer>

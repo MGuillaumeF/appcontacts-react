@@ -1,6 +1,18 @@
 import * as React from 'react';
 import { ContactsConsumer } from '../contact-context/ContactContext';
 import { useTranslation } from 'react-i18next';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import PhoneIcon from '@material-ui/icons/Phone';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import DeleteOutline from '@material-ui/icons/DeleteOutline';
 
 /**
  * The Contact interface with optional id
@@ -10,19 +22,19 @@ export interface IContact {
   /**
    * The name of Contact
    */
-  name : string,
+  name: string,
   /**
    * The email of contact
    */
-  email : string,
+  email: string,
   /**
    * The telephone number of Contact
    */
-  tel : string,
+  tel: string,
   /**
    * The id of Contact (assigned by context dispatcher)
    */
-  id? : number
+  id?: number
 }
 
 /**
@@ -33,26 +45,26 @@ export interface IContactWithId {
   /**
    * The name of Contact
    */
-  name : string,
+  name: string,
   /**
    * The email of contact
    */
-  email : string,
+  email: string,
   /**
    * The telephone number of Contact
    */
-  tel : string,
+  tel: string,
   /**
    * The id of Contact (assigned by context dispatcher)
    */
-  id : number
+  id: number
 }
 
 /**
  * The component to display Contact card item
  * @param props The contact object content
  */
-export default function Contact (props: IContact) {
+export default function Contact(props: IContact) {
   const { t } = useTranslation();
 
   /**
@@ -67,9 +79,9 @@ export default function Contact (props: IContact) {
    * @param contact The contact object content 
    * @param dispatch The function to interact with context, to delete contact in context state
    */
-  const onDelete = (contact : IContact, dispatch : Function) => {
-    if (typeof(contact.id) !== 'undefined') {
-      dispatch({type : 'DELETE_CONTACT', payload : {id : contact.id}});
+  const onDelete = (contact: IContact, dispatch: Function) => {
+    if (typeof (contact.id) !== 'undefined') {
+      dispatch({ type: 'DELETE_CONTACT', payload: { id: contact.id } });
     }
   };
   /**
@@ -79,30 +91,34 @@ export default function Contact (props: IContact) {
     <ContactsConsumer>
       {value => {
         return (
-          <div className='card card-body mb-3 text-center'>
-            <h4>{props.name}&nbsp;
-            <i 
-              style={{cursor : 'pointer'}} 
-              className='fas fa-sort-down' 
-              onClick={() => showContact(display => !display)}
-            ></i>
-            <i 
-              style={{cursor : 'pointer', float : 'right', color : 'red'}} 
-              className='fas fa-times' 
-              onClick={() => {onDelete(props, value.dispatch)}}
-            ></i>
-            </h4>
-            {show ? (
-              <ul className='card card-body mb-3'>
-                <li className='list-group-item'>
-                {t('pages.addContact.inputs.email.name')} : {props.email}
-                </li>
-                <li className='list-group-item'>
-                  {t('pages.addContact.inputs.tel.name')} : {props.tel}
-                </li>
-            </ul>) : null}
-          </div>
-        )}}
+            <ExpansionPanel expanded={show} onChange={() => showContact(display => !display)}>
+              <ExpansionPanelSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <Typography><DeleteOutline style={{ cursor: 'pointer', float: 'left', color: 'red', marginRight : '1em'}} onClick={() => { onDelete(props, value.dispatch) }}/>
+              {props.name}</Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                  <List aria-label="main contact">
+                    <ListItem button>
+                      <ListItemIcon>
+                        <PhoneIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={t('pages.addContact.inputs.tel.name') + ' : ' + props.tel} />
+                    </ListItem>
+                    <ListItem button>
+                      <ListItemIcon>
+                        <DraftsIcon />
+                      </ListItemIcon>
+                      <ListItemText primary={t('pages.addContact.inputs.email.name') + ' : ' + props.email} />
+                    </ListItem>
+                  </List>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+        )
+      }}
     </ContactsConsumer>
   );
 }
