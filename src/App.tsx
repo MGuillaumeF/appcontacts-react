@@ -1,6 +1,4 @@
 import React, {Suspense} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 import Header from './components/header/Header';
 import ContactList from './components/contact-components/contact-list/ContactList';
 import { ContactsProvider } from './components/contact-components/contact-context/ContactContext';

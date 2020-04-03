@@ -32,11 +32,8 @@ i18n
         resources,
         fallbackLng: ['en', 'fr'],
         debug: true,
-        nonExplicitWhitelist : true,
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
         }
     });
-
-console.log(i18n);
 export default i18n;
