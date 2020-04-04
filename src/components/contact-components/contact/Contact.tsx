@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { ContactsConsumer } from '../contact-context/ContactContext';
-import { useTranslation } from 'react-i18next';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -65,8 +64,6 @@ export interface IContactWithId {
  * @param props The contact object content
  */
 export default function Contact(props: IContact) {
-  const { t } = useTranslation();
-
   /**
    * The display state 
    * true show content card
@@ -106,13 +103,13 @@ export default function Contact(props: IContact) {
                       <ListItemIcon>
                         <PhoneIcon />
                       </ListItemIcon>
-                      <ListItemText primary={t('pages.addContact.inputs.tel.name') + ' : ' + props.tel} />
+                      <ListItemText primary={props.tel} />
                     </ListItem>
                     <ListItem button>
                       <ListItemIcon>
                         <DraftsIcon />
                       </ListItemIcon>
-                      <ListItemText primary={t('pages.addContact.inputs.email.name') + ' : ' + props.email} />
+                      <ListItemText primary={props.email} />
                     </ListItem>
                   </List>
               </ExpansionPanelDetails>
