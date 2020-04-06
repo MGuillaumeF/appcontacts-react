@@ -39,7 +39,7 @@ function App() {
               </Container>
             </Router>
           </ContactsProvider>
-          <Button style={{position : 'absolute', bottom : '1em', left : '1em'}} onClick={() => {changeTheme(selectedTheme.palette.type === 'light'? themeUI.dark : themeUI.light)}} variant="contained" color='default' >{t('theme.' + selectedTheme.palette.type)}</Button>
+          <Button style={{opacity : '0.7', position : 'fixed', bottom : '1em', left : '1em'}} onClick={() => {changeTheme(selectedTheme.palette.type === 'light'? themeUI.dark : themeUI.light)}} variant="contained" color='default' >{t('theme.' + selectedTheme.palette.type)}</Button>
         </div>
       </Suspense>
     </ThemeProvider>
