@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/appcontacts-react/static/css/main.566e2cc3.chunk.css",
-    "main.js": "/appcontacts-react/static/js/main.a81a1a40.chunk.js",
-    "main.js.map": "/appcontacts-react/static/js/main.a81a1a40.chunk.js.map",
+    "main.js": "/appcontacts-react/static/js/main.671b2ff3.chunk.js",
+    "main.js.map": "/appcontacts-react/static/js/main.671b2ff3.chunk.js.map",
     "runtime-main.js": "/appcontacts-react/static/js/runtime-main.beda7151.js",
     "runtime-main.js.map": "/appcontacts-react/static/js/runtime-main.beda7151.js.map",
-    "static/js/2.6661dfc1.chunk.js": "/appcontacts-react/static/js/2.6661dfc1.chunk.js",
-    "static/js/2.6661dfc1.chunk.js.map": "/appcontacts-react/static/js/2.6661dfc1.chunk.js.map",
+    "static/js/2.5d786a27.chunk.js": "/appcontacts-react/static/js/2.5d786a27.chunk.js",
+    "static/js/2.5d786a27.chunk.js.map": "/appcontacts-react/static/js/2.5d786a27.chunk.js.map",
     "index.html": "/appcontacts-react/index.html",
-    "precache-manifest.2118382d992ef922548abf7af72b601f.js": "/appcontacts-react/precache-manifest.2118382d992ef922548abf7af72b601f.js",
+    "precache-manifest.72400634093a08f4e9e5b111ea70c478.js": "/appcontacts-react/precache-manifest.72400634093a08f4e9e5b111ea70c478.js",
     "service-worker.js": "/appcontacts-react/service-worker.js",
     "static/css/main.566e2cc3.chunk.css.map": "/appcontacts-react/static/css/main.566e2cc3.chunk.css.map",
-    "static/js/2.6661dfc1.chunk.js.LICENSE.txt": "/appcontacts-react/static/js/2.6661dfc1.chunk.js.LICENSE.txt"
+    "static/js/2.5d786a27.chunk.js.LICENSE.txt": "/appcontacts-react/static/js/2.5d786a27.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.beda7151.js",
-    "static/js/2.6661dfc1.chunk.js",
+    "static/js/2.5d786a27.chunk.js",
     "static/css/main.566e2cc3.chunk.css",
-    "static/js/main.a81a1a40.chunk.js"
+    "static/js/main.671b2ff3.chunk.js"
   ]
 }
