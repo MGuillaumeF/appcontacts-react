@@ -16,7 +16,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Suspense fallback="loading">
         <div style={{
-          height: '100vh',
+          minHeight: '100vh',
           marginTop: '0',
           zIndex: 1,
           backgroundColor: theme.palette.background.default,
