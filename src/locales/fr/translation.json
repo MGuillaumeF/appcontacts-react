@@ -1,5 +1,9 @@
 {
     "application-name": "AppContacts",
+    "theme" : {
+        "light" : "clair",
+        "dark" : "sombre"
+    },
     "components": {
         "contact-list": {
             "link": "Accueil",
