@@ -79,9 +79,9 @@ export default function Header() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <Link style={{color : "inherit", textDecoration : 'none' }} to='/' ><MenuItem onClick={handleClose}>{t('pages.home.link')}</MenuItem></Link>
-        <Link style={{color : "inherit", textDecoration : 'none' }} to='/add' ><MenuItem onClick={handleClose}>{t('pages.addContact.link')}</MenuItem></Link>
-        <Link style={{color : "inherit", textDecoration : 'none' }} to='/about' ><MenuItem onClick={handleClose}>{t('pages.aboutUs.link')}</MenuItem></Link>
+        <Link style={{color : "inherit", textDecoration : 'none' }} to='/' ><MenuItem onClick={handleClose}>{t('components.contact-list.link')}</MenuItem></Link>
+        <Link style={{color : "inherit", textDecoration : 'none' }} to='/add' ><MenuItem onClick={handleClose}>{t('components.contact-form.link')}</MenuItem></Link>
+        <Link style={{color : "inherit", textDecoration : 'none' }} to='/about' ><MenuItem onClick={handleClose}>{t('components.about-us.link')}</MenuItem></Link>
       </Menu>
 
     </div>

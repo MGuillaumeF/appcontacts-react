@@ -8,7 +8,7 @@ import Container from '@material-ui/core/Container';
  * The Contact List component to display all contact
  */
 export default function ContactList () {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   /**
    * Hook function to print in log after component creation
    */
@@ -23,8 +23,8 @@ export default function ContactList () {
       {value => {
         return (
           <Container maxWidth="sm" className='padding-1'>
-            <h1 className='display-5'>{t('pages.home.title')}</h1>
-            {value.contacts.map((contact: IContactWithId) => (
+            <h1 className='display-5'>{t('components.contact-list.title')}</h1>
+            {value.contacts.length > 0 ? value.contacts.map((contact: IContactWithId) => (
                 <Contact 
                     key={contact.id}
                     id={contact.id}
@@ -32,7 +32,7 @@ export default function ContactList () {
                     email={contact.email}
                     tel={contact.tel}
                     />
-            ))}
+            )) : t('components.contact-list.empty-list')}
           </Container>
         )
       }}

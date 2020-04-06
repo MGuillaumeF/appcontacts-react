@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import Container from '@material-ui/core/Container';
 
 import './ContactForm.css'
-import TextInput from '../../widget/text-input/TextInput';
+import TextInput from '../../text-input/TextInput';
 
 /**
 * The Contact interface with mandatory id 
@@ -62,10 +62,10 @@ export default function ContactForm(props: IContactForm) {
     ];
 
     /**
- * Funtion to accept change of Contact form
- * @param value The value of input
- * @param key The key of contact object to update
- */
+     * Funtion to accept change of Contact form
+     * @param value The value of input
+     * @param key The key of contact object to update
+     */
     const onChange = (value: string, key: string) => {
         let contactUpdated: any = { ...contact };
         contactUpdated[key] = value;
@@ -108,7 +108,7 @@ export default function ContactForm(props: IContactForm) {
                     <Container maxWidth="sm" className='padding-1'>
 
                         <Paper className="padding-1">
-                            <h2>{t('pages.addContact.title')}</h2>
+                            <h2>{t('components.contact-form.title')}</h2>
                             <form noValidate autoComplete="off">
                                 {inputs.map((input, index) => {
                                     return (
@@ -117,14 +117,14 @@ export default function ContactForm(props: IContactForm) {
                                             fullWidth={true}
                                             submited={submited}
                                             margin='normal'
-                                            label={t(`pages.addContact.inputs.${input.name}.placeholder`)}
+                                            label={t(`components.contact-form.inputs.${input.name}.label`)}
                                             required
                                             value={input.value}
                                             onChange={input.onChange}
                                             limitorPattern={input.limitor}
                                             validatorPattern={input.validator}
                                             onChangeMutation={input.onChangeMutation}
-                                            message={input.message ? { info: t(`pages.addContact.inputs.${input.name}.help-message`), error: t(`pages.addContact.inputs.${input.name}.error-message`) } : undefined}
+                                            message={input.message ? { info: t(`components.contact-form.inputs.${input.name}.help-message`), error: t(`components.contact-form.inputs.${input.name}.error-message`) } : undefined}
                                         />
                                     );
                                 })}
@@ -133,7 +133,7 @@ export default function ContactForm(props: IContactForm) {
                                         variant="contained"
                                         color="primary" onClick={() => { onSubmit(context) }}
                                     >
-                                        {t('pages.addContact.inputs.submit.text')}
+                                        {t('components.contact-form.inputs.submit.text')}
                                     </Button>
                                 </FormControl>
                             </form>

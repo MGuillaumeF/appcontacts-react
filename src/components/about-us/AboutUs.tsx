@@ -9,10 +9,10 @@ export default function AboutUs () {
   const { t } = useTranslation();
   return (
     <Container maxWidth="sm" className='padding-1'>
-      <h1 className='display-5'>{t('pages.aboutUs.title')}</h1>
-      <p className="lead">{t('pages.aboutUs.description')}</p>
-      <p className="author">{t('pages.aboutUs.author')}</p>
-      <p>Version {t('pages.aboutUs.version')}</p>
+      <h1 className='display-5'>{t('components.about-us.title')}</h1>
+      <p className="lead">{t('components.about-us.description')}</p>
+      <p className="author">{t('components.about-us.author')}</p>
+      <p>Version {t('components.about-us.version')}</p>
     </Container>
   );
 }

@@ -67,7 +67,7 @@ export function ContactsProvider(props: {children : any}) {
                 {
                     id: 0,
                     email: 'jean.dupont@email.fr',
-                    name: 'Dupont',
+                    name: 'DUPONT',
                     tel: '012345689'
                 }
             ];
