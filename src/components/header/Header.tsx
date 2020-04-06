@@ -69,7 +69,7 @@ export default function Header() {
           <Typography variant="h6"  className={classes.title}>
             <Link to='/' style={{color : "inherit", textDecoration : 'none' }}>{t('application-name')}</Link>
           </Typography>
-          <Button color="inherit" onClick={onChangeLanguage}>{language}</Button>
+          <Button variant="contained" color="secondary" onClick={onChangeLanguage}>{language}</Button>
         </Toolbar>
       </AppBar>
       <Menu

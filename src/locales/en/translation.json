@@ -35,8 +35,8 @@
             "link": "About Us",
             "title": "About Us",
             "description": "This application is a Contact list of Udemy React learning",
-            "author": "MGuillaumeF",
-            "version": "1.0.0"
+            "author": "By MGuillaumeF",
+            "version": "Version 1.0.0"
         },
         "error-pages" : {
             "404" : {
