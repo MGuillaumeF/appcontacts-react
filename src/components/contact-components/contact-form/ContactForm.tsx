@@ -79,8 +79,8 @@ export default function ContactForm(props: IContactForm) {
         },
         {
             name: 'tel',
-            limitor: /^((\+\d{0,11})|(\d{0,10}))$/,
-            validator: /^(?:\+\d{11})|(?:\d{10})$/,
+            limitor: /^((\+\d{0,18})|(\d{0,18}))$/,
+            validator: /^(?:\+\d{9,18})|(?:\d{7,18})$/,
             value: contact.tel,
             message: true,
             onChange: (value: string) => { onChange(value, 'tel') }
