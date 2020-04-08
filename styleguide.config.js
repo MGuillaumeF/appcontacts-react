@@ -4,7 +4,8 @@ module.exports = {
     ).parse,
     dangerouslyUpdateWebpackConfig(webpackConfig, env) {
 		webpackConfig.output.filename = 'build/bundle.js'
-		webpackConfig.output.chunkFilename = 'build/[name].js'
+        webpackConfig.output.chunkFilename = 'build/[name].js'
 		return webpackConfig
-	}
+    },
+    styleguideDir : 'doc'
 }

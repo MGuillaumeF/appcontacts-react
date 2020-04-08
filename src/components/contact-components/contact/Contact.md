@@ -9,7 +9,8 @@ import { ContactsProvider } from './components/contact-components/contact-contex
 <ContactsProvider>
     <Contact 
         id={id}
-        name={name}
+        lastName={lastName}
+        firstName={firstName}
         email={email}
         tel={tel}
     />
