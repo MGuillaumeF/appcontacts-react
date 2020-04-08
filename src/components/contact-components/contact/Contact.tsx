@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { ContactsConsumer } from '../contact-context/ContactContext';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
@@ -19,9 +19,13 @@ import DeleteOutline from '@material-ui/icons/DeleteOutline';
  */
 export interface IContact {
   /**
-   * The name of Contact
+   * The lastName of Contact
    */
-  name: string,
+  lastName: string,
+  /**
+   * The firstName of Contact
+   */
+  firstName: string,
   /**
    * The email of contact
    */
@@ -42,9 +46,13 @@ export interface IContact {
 */
 export interface IContactWithId {
   /**
-   * The name of Contact
+   * The lastName of Contact
    */
-  name: string,
+  lastName: string,
+  /**
+   * The firstName of Contact
+   */
+  firstName: string,
   /**
    * The email of contact
    */
@@ -69,7 +77,7 @@ export default function Contact(props: IContact) {
    * true show content card
    * false hide content card
    */
-  const [show, showContact] = React.useState(false);
+  const [show, showContact] = useState(false);
 
   /**
    * Function to delete a contact in list
@@ -95,7 +103,7 @@ export default function Contact(props: IContact) {
                 id="panel1bh-header"
               >
                 <Typography><DeleteOutline style={{ cursor: 'pointer', float: 'left', color: 'red', marginRight : '1em'}} onClick={() => { onDelete(props, value.dispatch) }}/>
-              {props.name}</Typography>
+                {props.lastName} {props.firstName}</Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
                   <List aria-label="main contact">

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { ContactsConsumer, IContactsContextState } from '../contact-context/ContactContext';
 import { EMPTY_CONTACT } from '../../../ConstantsUtils';
 import Button from '@material-ui/core/Button';
@@ -31,17 +31,43 @@ export interface IContactForm {
 export default function ContactForm(props: IContactForm) {
     const { t } = useTranslation();
     // Add contact object in state of form
-    const [contact, setContact] = React.useState(EMPTY_CONTACT);
-    const [submited, setSubmited] = React.useState(false);
+    const [contact, setContact] = useState(EMPTY_CONTACT);
+    const [submited, setSubmited] = useState(false);
 
     const inputs: Array<any> = [
         {
-            name: 'name',
-            limitor: /^[A-Z\-]*$/,
-            validator: /^[A-Z][A-Z\-]+$/,
-            value: contact.name,
-            onChangeMutation: (value: string) => value.toUpperCase().trim(),
-            onChange: (value: string) => { onChange(value, 'name') }
+            name: 'lastName',
+            limitor: /^[\wâäàéèêëîïôöùüûç\-]*$/i,
+            validator: /^[\wâäàéèêëîïôöùüûç][\wâäàéèêëîïôöùüûç\-]+$/i,
+            value: contact.lastName,
+            onChangeMutation: (value: string) => value.toUpperCase(),
+            onChange: (value: string) => { onChange(value, 'lastName') }
+        },
+        {
+            name: 'firstName',
+            limitor: /^[\wâäàéèêëîïôöùüûç\-\s]*$/i,
+            validator: /^[\wâäàéèêëîïôöùüûç][\wâäàéèêëîïôöùüûç\-\s]+$/i,
+            value: contact.firstName,
+            onChangeMutation: (value: string) => {
+                let val : string = value.toLowerCase();
+                if (/\s/.test(val)) {
+                    let valArr: string[] = val.split(' ');
+                    valArr = valArr.map(element => {
+                        return element.slice(0, 1).toUpperCase() + element.slice(1);
+                    });
+                    val = valArr.join(' ');
+                }
+                if (/\-/.test(val)) {
+                    let valArr: string[] = val.split('-');
+                    valArr = valArr.map(element => {
+                        return element.slice(0, 1).toUpperCase() + element.slice(1);
+                    });
+                    val = valArr.join('-');
+                }
+                val = val.slice(0, 1).toUpperCase() + val.slice(1);
+                return val
+            },
+            onChange: (value: string) => { onChange(value, 'firstName') }
         },
         {
             name: 'email',

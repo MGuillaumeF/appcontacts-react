@@ -14,9 +14,13 @@
             "link": "Ajouter",
             "title": "Ajouter un Contact",
             "inputs": {
-                "name": {
+                "lastName": {
                     "name" : "Nom",
                     "label": "Nom..."
+                },
+                "firstName": {
+                    "name" : "Prénom",
+                    "label": "Prénom..."
                 },
                 "email": {
                     "name" : "Email",

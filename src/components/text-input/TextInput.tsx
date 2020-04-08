@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 
 /**
@@ -56,7 +56,7 @@ export interface ITextInputProps {
  * @param props 
  */
 export default function TextInput(props: ITextInputProps) {
-    const [state, setState] = React.useState(props.value);
+    const [state, setState] = useState(props.value);
     /**
      * Funtion to accept change of Input
      * @param value The value of input

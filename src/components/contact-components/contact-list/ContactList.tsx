@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import Contact, { IContactWithId } from '../contact/Contact';
 import { ContactsConsumer } from '../contact-context/ContactContext';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,7 @@ export default function ContactList() {
   /**
    * Hook function to print in log after component creation
    */
-  React.useEffect(() => {
+  useEffect(() => {
     console.log('The component is mounted');
   });
   /**
@@ -33,7 +33,8 @@ export default function ContactList() {
                 <Contact
                   key={contact.id}
                   id={contact.id}
-                  name={contact.name}
+                  lastName={contact.lastName}
+                  firstName={contact.firstName}
                   email={contact.email}
                   tel={contact.tel}
                 />

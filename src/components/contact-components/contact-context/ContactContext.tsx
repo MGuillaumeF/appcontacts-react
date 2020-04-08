@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { createContext, useState } from 'react';
 import { EMPTY_ANY } from '../../../ConstantsUtils';
 import { IContactWithId } from '../contact/Contact';
 
@@ -28,7 +28,7 @@ export interface IContactsContextState {
     dispatch : any
 }
 
-const ContactContext = React.createContext(EMPTY_ANY);
+const ContactContext = createContext(EMPTY_ANY);
 
 /**
  * The reducer function to interact with context state
@@ -67,14 +67,15 @@ export function ContactsProvider(props: {children : any}) {
                 {
                     id: 0,
                     email: 'jean.dupont@email.fr',
-                    name: 'DUPONT',
+                    lastName: 'DUPONT',
+                    firstName: 'Pierre',
                     tel: '012345689'
                 }
             ];
     /**
      * State of context with default values
      */
-    const [state, setState] = React.useState(
+    const [state, setState] = useState(
         {
             currentContactId: 1,
             contacts: listDefaultContacts,

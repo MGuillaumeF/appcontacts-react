@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';

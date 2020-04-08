@@ -14,9 +14,13 @@
             "link": "Add",
             "title": "Add a Contact",
             "inputs": {
-                "name": {
-                    "name" : "Name",
-                    "label": "Name..."
+                "last-name": {
+                    "name" : "Last Name",
+                    "label": "Last Name..."
+                },
+                "first-name": {
+                    "name" : "First Name",
+                    "label": "First Name..."
                 },
                 "email": {
                     "name" : "Email",
