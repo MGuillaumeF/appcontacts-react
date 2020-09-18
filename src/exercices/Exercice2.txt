@@ -1,7 +1,3 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Exercice1 } from "./exercices/Exercice1";
-import { Exercice3 } from "./exercices/Exercice3";
-
 enum EGeometryType {
   CIRCLE = "circle",
   POLYGON = "polygon",
@@ -21,7 +17,7 @@ interface IGeoPoint {
 
 interface IGeoPoint3D extends IGeoPoint {
   altitude: number;
-  altitudeRef: EAltitudeRef;
+  altitudeRef?: EAltitudeRef;
 }
 
 interface ICircle {
@@ -36,6 +32,9 @@ interface IPolygon {
 interface IGeometry {
   geometryType: EGeometryType;
   geometry: ICircle | IGeoPoint | IPolygon;
+}
+
+interface IArea extends IGeometry {
   color?: string;
   name? : string;
 }
@@ -82,19 +81,4 @@ function getData(): IGeometry[] {
   return data;
 }
 
-function App() {
-
-  //useEffect(() => {}, []);
-  return (
-    <Fragment>
-      <h1>Exo 1</h1>
-      <Exercice1/>
-      <hr/>
-      <h1>Exo 3</h1>
-      <Exercice3/>
-      <hr/>
-    </Fragment>
-  );
-}
-
-export default App;
+export default () => {};

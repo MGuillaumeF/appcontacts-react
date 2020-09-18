@@ -1,6 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Exercice1 } from "./exercices/Exercice1";
-import { Exercice3 } from "./exercices/Exercice3";
+import React from "react";
 
 enum EGeometryType {
   CIRCLE = "circle",
@@ -21,7 +19,7 @@ interface IGeoPoint {
 
 interface IGeoPoint3D extends IGeoPoint {
   altitude: number;
-  altitudeRef: EAltitudeRef;
+  altitudeRef?: EAltitudeRef;
 }
 
 interface ICircle {
@@ -36,13 +34,18 @@ interface IPolygon {
 interface IGeometry {
   geometryType: EGeometryType;
   geometry: ICircle | IGeoPoint | IPolygon;
-  color?: string;
-  name? : string;
 }
 
-function getData(): IGeometry[] {
-  const data: IGeometry[] = [
+interface IArea extends IGeometry {
+  color?: string;
+  name: string;
+}
+
+function getData(): IArea[] {
+  const data: IArea[] = [
     {
+      name: "rond",
+      color: "red",
       geometryType: EGeometryType.CIRCLE,
       geometry: {
         radius: 15,
@@ -53,6 +56,7 @@ function getData(): IGeometry[] {
       },
     },
     {
+      name: "triangle",
       geometryType: EGeometryType.POLYGON,
       geometry: {
         points: [
@@ -72,6 +76,7 @@ function getData(): IGeometry[] {
       },
     },
     {
+      name: "point",
       geometryType: EGeometryType.POINT,
       geometry: {
         latitude: 0,
@@ -82,19 +87,43 @@ function getData(): IGeometry[] {
   return data;
 }
 
-function App() {
-
-  //useEffect(() => {}, []);
+function AreaItem(props: { name: string; color?: string }) {
   return (
-    <Fragment>
-      <h1>Exo 1</h1>
-      <Exercice1/>
-      <hr/>
-      <h1>Exo 3</h1>
-      <Exercice3/>
-      <hr/>
-    </Fragment>
+    <li
+      style={{
+        listStyle: "none",
+        fontSize: "1em",
+        lineHeight: "1em",
+        verticalAlign: "middle",
+        marginTop:"0.2em",
+
+      }}
+    >
+      <span
+        style={{
+          width: "1em",
+          height: "1em",
+          verticalAlign: "middle",
+          display: "inline-block",
+          backgroundColor: props.color || "lightGray",
+          marginRight: "0.5em",
+        }}
+      ></span>
+      - {props.name}
+    </li>
   );
 }
 
-export default App;
+function AreaList(props: { data: IArea[] }) {
+  return (
+    <ul>
+      {props.data.map((geo) => {
+        return <AreaItem key={geo.name} name={geo.name} color={geo.color} />;
+      })}
+    </ul>
+  );
+}
+
+export const Exercice3 = () => {
+  return <AreaList data={getData()} />;
+};

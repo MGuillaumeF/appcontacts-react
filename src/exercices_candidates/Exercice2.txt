@@ -1,0 +1,53 @@
+enum EGeometryType {
+  CIRCLE = "circle",
+  POLYGON = "polygon",
+  POINT = "point",
+}
+
+enum EAltitudeRef {
+  AGL = "AGL",
+  AMSL = "AMSL",
+  FL = "AGL",
+}
+
+interface IGeoPoint {
+  longitude: number;
+  latitude: number;
+}
+
+interface IGeoPoint3D extends IGeoPoint {
+  altitude: number;
+  altitudeRef?: EAltitudeRef;
+}
+
+interface ICircle {
+  center: IGeoPoint;
+  radius: number;
+}
+
+interface IPolygon {
+  points: IGeoPoint[];
+}
+
+interface IGeometry {
+  geometryType: EGeometryType;
+  geometry: ICircle | IGeoPoint | IPolygon;
+}
+
+// Créer une interface pour les zones
+// cette interface doit contenir les mêmes propriétés qu'une IGeometry
+// elle doit entenir en plus les propriétés optionnels :
+//     - name
+//     - color
+
+
+
+// Ajouter 1 géométry de chaque type dans le tableau data
+function getData(): IGeometry[] {
+  const data: IGeometry[] = [
+    ...
+  ];
+  return data;
+}
+
+export default () => {};

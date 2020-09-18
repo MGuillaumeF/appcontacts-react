@@ -1,0 +1,47 @@
+import React, { Fragment, ... } from "react";
+
+function PrimaryTitle(props: { text: string }): JSX.Element {
+  return <h1>{props.text}</h1>;
+}
+function SecondaryTitle(props: { text: string }): JSX.Element {
+  return <h2>{props.text}</h2>;
+}
+
+// ...
+
+function Title(props: { text: string; component: Function }): JSX.Element {
+  const Compo = props.component;
+  return <Compo text={props.text} />;
+}
+
+
+// Le composant Exercie1 doit :
+// contenir un composant "Titre" et un "button"
+// à l'initialisation le composant Titre affiche "Aucun clique" de premier niveau
+// au premier Clique sur le bouton le Titre devient un titre de second niveau avec le contenu "Nombre de clique impaire : 1"
+// au second Clique sur le bouton le Titre devient un titre de troisième niveau avec le contenu "Nombre de clique paire : 2"
+// au troisième clique "impaire : 3"
+// etc...
+export function Exercice1() {
+
+  // ....
+
+  function renderText() : string {
+    // ....
+    return text;
+  }
+  function renderCompo() : Function {
+    // ....
+    return compo;
+  }
+
+  return (
+    <Fragment>
+      <Title
+        text={renderText()}
+        component={renderCompo()}
+      />
+      <button>Cliquez-moi</button>
+    </Fragment>
+  );
+}
